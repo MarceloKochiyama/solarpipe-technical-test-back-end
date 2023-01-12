@@ -25,21 +25,21 @@ export class EmployeesController {
     return this.employeesService.findAll();
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.employeesService.findOne(+id);
+  @Get(':uuid')
+  findOne(@Param('uuid') uuid: string) {
+    return this.employeesService.findOne(uuid);
   }
 
-  @Patch(':id')
+  @Patch(':uuid')
   update(
-    @Param('id') id: string,
+    @Param('uuid') uuid: string,
     @Body() updateEmployeeDto: UpdateEmployeeDto,
   ) {
-    return this.employeesService.update(+id, updateEmployeeDto);
+    return this.employeesService.update(uuid, updateEmployeeDto);
   }
 
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.employeesService.remove(+id);
+  @Delete(':uuid')
+  remove(@Param('uuid') uuid: string) {
+    return this.employeesService.remove(uuid);
   }
 }
